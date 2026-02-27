@@ -14,7 +14,7 @@ const app = express();
 app.set("trust proxy", 1);
 
 /* ======================================================
-   🔥 UNIVERSAL CORS CONFIG (DEV + PROD + VERCEL + RENDER)
+   🔥 UNIVERSAL CORS CONFIG (DEV + PROD + RENDER + VERCEL)
 ====================================================== */
 
 // Environment Origins (comma separated in Render dashboard)
@@ -36,7 +36,6 @@ const allowedOrigins = new Set([...defaultOrigins, ...envOrigins]);
 
 const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests with no origin (Postman, mobile apps, curl)
     if (!origin) return callback(null, true);
 
     // Allow localhost any port
@@ -44,17 +43,16 @@ const corsOptions = {
       return callback(null, true);
     }
 
-    // Allow Vercel preview deployments
+    // Allow all Vercel deployments (preview + production)
     if (/\.vercel\.app$/.test(origin)) {
       return callback(null, true);
     }
 
-    // Allow configured origins
     if (allowedOrigins.has(origin)) {
       return callback(null, true);
     }
 
-    console.log("Blocked by CORS:", origin);
+    console.log("❌ Blocked by CORS:", origin);
     return callback(new Error("Not allowed by CORS"));
   },
   credentials: true,
@@ -62,7 +60,12 @@ const corsOptions = {
   allowedHeaders: [
     "Content-Type",
     "Authorization",
-    "X-Requested-With"
+    "X-Requested-With",
+    "X-Network-Provider",
+    "X-Network-Type",
+    "X-Network-Effective-Type",
+    "X-Network-RTT",
+    "X-Network-Downlink"
   ],
   exposedHeaders: ["Content-Length"],
   optionsSuccessStatus: 204
@@ -96,7 +99,7 @@ app.use("/api/courses", courseRoutes);
 app.use("/api/activity", activityRoutes);
 
 /* ======================================================
-   404 HANDLER (Important for Vercel reload issue)
+   404 HANDLER
 ====================================================== */
 
 app.use((req, res) => {
@@ -111,7 +114,7 @@ app.use((req, res) => {
 ====================================================== */
 
 app.use((err, req, res, next) => {
-  console.error("Error:", err.message);
+  console.error("🔥 Error:", err.message);
 
   res.status(err.statusCode || 500).json({
     success: false,
