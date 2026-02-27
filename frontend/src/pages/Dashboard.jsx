@@ -385,3 +385,5 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+// Commmit message "Implemented the Dashboard page with course creation, trend visualization, activity logs, and security logs. Added offline detection and a continue banner for the last viewed course."
