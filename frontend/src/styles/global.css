@@ -1,0 +1,32 @@
+:root {
+  --bg: #f3f4f6;
+  --surface: #ffffff;
+  --text: #17212b;
+  --muted: #66788a;
+  --primary: #1363df;
+  --primary-hover: #0d4daf;
+  --danger: #d14343;
+  --success-bg: #def7e8;
+  --success-text: #175b32;
+  --error-bg: #fde9e9;
+  --error-text: #892b2b;
+  --border: #d8e2ec;
+  --shadow: 0 2px 8px rgba(20, 37, 58, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
