@@ -1,0 +1,255 @@
+.course-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 1px 4px rgba(21, 52, 86, 0.08);
+  border: 1px solid #e5e7eb;
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.course-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(21, 52, 86, 0.12);
+}
+
+.course-card.expired {
+  opacity: 0.72;
+  filter: grayscale(0.22);
+}
+
+.course-card.last-viewed {
+  border-color: #69a3ec;
+}
+
+.course-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.course-card h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.pin-btn {
+  border: 1px solid #d4dde9;
+  background: #fff;
+  color: #4f6278;
+  font-size: 12px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pin-btn.active {
+  color: #935d00;
+  border-color: #f2c55a;
+  background: #fff6dd;
+}
+
+.badge-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.difficulty-badge,
+.expiry-badge {
+  font-size: 12px;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-weight: 700;
+}
+
+.difficulty-badge.beginner {
+  background: #e8f7ee;
+  color: #1a7e48;
+}
+
+.difficulty-badge.intermediate {
+  background: #fff7dc;
+  color: #8b6a03;
+}
+
+.difficulty-badge.advanced {
+  background: #ffe8e8;
+  color: #a32424;
+}
+
+.expiry-badge.active {
+  background: #edf3fd;
+  color: #2e5f9f;
+}
+
+.expiry-badge.expired {
+  background: #eceff3;
+  color: #5d6773;
+}
+
+.course-card p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.4;
+  font-size: 16px;
+}
+
+.course-meta {
+  display: grid;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.instructor-tag {
+  color: #fff;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+.course-actions {
+  margin-top: 3px;
+  display: flex;
+  gap: 8px;
+}
+
+.course-actions button {
+  border: none;
+  border-radius: 10px;
+  padding: 9px 12px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.course-actions button:hover {
+  opacity: 0.88;
+}
+
+.edit-btn {
+  background: #2f7ed8;
+}
+
+.delete-btn {
+  background: var(--danger);
+}
+
+.course-card.catalog {
+  border-radius: 18px;
+  padding: 22px;
+  border-color: #eceff5;
+  box-shadow: 0 8px 24px rgba(23, 33, 49, 0.06);
+}
+
+.course-card.catalog:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(23, 33, 49, 0.12);
+}
+
+.catalog-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.catalog-initials {
+  width: 62px;
+  height: 62px;
+  border-radius: 16px;
+  background: #eef2ff;
+  color: #4f46e5;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.catalog-title {
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 6px 0 2px;
+}
+
+.catalog-description {
+  color: #586b86;
+  font-size: 14px;
+  margin: 0 0 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 90px;
+}
+
+.catalog-footer {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #edf1f6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.catalog-instructor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f2d3d;
+}
+
+.catalog-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #dbe3ef;
+  color: #334155;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.catalog-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.catalog-actions button {
+  border: 1px solid #d4dde9;
+  background: #fff;
+  color: #52647a;
+  border-radius: 9px;
+  padding: 6px 9px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.catalog-actions .delete-btn {
+  color: #b42323;
+  border-color: #efc1c1;
+  background: #fff5f5;
+}
+
+.catalog-actions .edit-btn {
+  color: #1d4ed8;
+  border-color: #bfd2ff;
+  background: #f3f7ff;
+}
+
+.catalog-meta {
+  font-size: 13px;
+  color: #6b7c91;
+  margin-top: 10px;
+}
